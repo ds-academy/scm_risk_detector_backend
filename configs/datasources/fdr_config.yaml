@@ -1,0 +1,207 @@
+data_pipelines:
+  name: FinanceDataReader
+  module: "modules.data.fdr_korea"
+  base_path: "data/KOR"
+  interval: "1d"
+  start_date: "1970-01-01"
+  end_date: "TODAY"
+  stocks:
+  - symbol: "005930"
+    full_name: 삼성전자
+    exchange: KRX
+
+  - symbol: "000660"
+    full_name: SK하이닉스
+    exchange: KRX
+
+  - symbol: "373220"
+    full_name: LG에너지솔루션
+    exchange: KRX
+
+  - symbol: "005380"
+    full_name: 현대차
+    exchange: KRX
+
+  - symbol: "207940"
+    full_name: 삼성바이오로직스
+    exchange: KRX
+
+  - symbol: "005935"
+    full_name: 삼성전자우
+    exchange: KRX
+
+  - symbol: "000270"
+    full_name: 기아
+    exchange: KRX
+
+  - symbol: "068270"
+    full_name: 셀트리온
+    exchange: KRX
+
+  - symbol: "105560"
+    full_name: KB금융
+    exchange: KRX
+
+  - symbol: "005490"
+    full_name: POSCO홀딩스
+    exchange: KRX
+
+  - symbol: "035420"
+    full_name: NAVER
+    exchange: KRX
+
+  - symbol: "055550"
+    full_name: 신한지주
+    exchange: KRX
+
+  - symbol: "051910"
+    full_name: LG화학
+    exchange: KRX
+
+  - symbol: "028260"
+    full_name: 삼성물산
+    exchange: KRX
+
+  - symbol: "006400"
+    full_name: 삼성SDI
+    exchange: KRX
+
+  - symbol: "012330"
+    full_name: 현대모비스
+    exchange: KRX
+
+  - symbol: "003670"
+    full_name: 포스코퓨처엠
+    exchange: KRX
+
+  - symbol: "086790"
+    full_name: 하나금융지주
+    exchange: KRX
+
+  - symbol: "035720"
+    full_name: 카카오
+    exchange: KRX
+
+  - symbol: "032830"
+    full_name: 삼성생명
+    exchange: KRX
+
+  - symbol: "000810"
+    full_name: 삼성화재
+    exchange: KRX
+
+  - symbol: "066570"
+    full_name: LG전자
+    exchange: KRX
+
+  - symbol: "042700"
+    full_name: 한미반도체
+    exchange: KRX
+
+  - symbol: "138040"
+    full_name: 메리츠금융지주
+    exchange: KRX
+
+  - symbol: "011200"
+    full_name: HMM
+    exchange: KRX
+
+  - symbol: "329180"
+    full_name: HD현대중공업
+    exchange: KRX
+
+  - symbol: "259960"
+    full_name: 크래프톤
+    exchange: KRX
+
+  - symbol: "402340"
+    full_name: SK스퀘어
+    exchange: KRX
+
+  - symbol: "003550"
+    full_name: LG
+    exchange: KRX
+
+  - symbol: "034020"
+    full_name: 두산에너빌리티
+    exchange: KRX
+
+  - symbol: "015760"
+    full_name: 한국전력
+    exchange: KRX
+
+  - symbol: "012450"
+    full_name: 한화에어로스페이스
+    exchange: KRX
+
+  - symbol: "018260"
+    full_name: 삼성에스디에스
+    exchange: KRX
+
+  - symbol: "009150"
+    full_name: 삼성전기
+    exchange: KRX
+
+  - symbol: "033780"
+    full_name: KT&G
+    exchange: KRX
+
+  - symbol: "024110"
+    full_name: 기업은행
+    exchange: KRX
+
+  - symbol: "034730"
+    full_name: SK
+    exchange: KRX
+
+  - symbol: "017670"
+    full_name: SK텔레콤
+    exchange: KRX
+
+  - symbol: "267260"
+    full_name: HD현대일렉트릭
+    exchange: KRX
+
+  - symbol: "009540"
+    full_name: HD한국조선해양
+    exchange: KRX
+
+  - symbol: "096770"
+    full_name: SK이노베이션
+    exchange: KRX
+
+  - symbol: "010130"
+    full_name: 고려아연
+    exchange: KRX
+
+  - symbol: "316140"
+    full_name: 우리금융지주
+    exchange: KRX
+
+  - symbol: "323410"
+    full_name: 카카오뱅크
+    exchange: KRX
+
+  - symbol: "047050"
+    full_name: 포스코인터내셔널
+    exchange: KRX
+
+  - symbol: "086280"
+    full_name: 현대글로비스
+    exchange: KRX
+
+  - symbol: "042660"
+    full_name: 한화오션
+    exchange: KRX
+
+  - symbol: "030200"
+    full_name: KT
+    exchange: KRX
+
+  - symbol: "090430"
+    full_name: 아모레퍼시픽
+    exchange: KRX
+
+  - symbol: "003490"
+    full_name: 대한항공
+    exchange: KRX

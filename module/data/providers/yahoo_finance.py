@@ -109,4 +109,4 @@ if __name__ == "__main__":
         interval="1d",
         period="max",
     )
-    print(p.get_data().dropna().to_string())
+    print(p.get_data().dropna())

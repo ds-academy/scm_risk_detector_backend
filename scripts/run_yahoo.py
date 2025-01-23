@@ -1,8 +1,8 @@
 import os
 import sys
 import logging
-from modules.utils import run_data_pipeline, read_config
-from modules.logger import get_logger, setup_global_logging
+from module.utils import run_data_pipeline, read_config
+from module.logger import get_logger, setup_global_logging
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     logger.info("Starting script")
     config_path = os.path.join(
-        project_root, "configs", "datapipelines", "yahoo_config.yaml"
+        project_root, "configs", "datasources", "raison_portfolio.yaml"
     )
 
     # config 파일 읽기

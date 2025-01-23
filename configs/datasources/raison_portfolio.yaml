@@ -1,0 +1,12 @@
+data_pipelines:
+  name: YahooFinance
+  module: "module.data.providers.yahoo_finance"
+  base_path: "raison/USA"
+  interval: "1d"
+  period: "max"
+  start_date: "1970-01-01"
+  end_date: "TODAY"
+  stocks:
+    - symbol: SOXL
+      full_name: Direxion Daily Semiconductor Bull 3X Shares
+      exchange: NASDAQ

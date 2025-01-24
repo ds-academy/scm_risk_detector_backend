@@ -118,12 +118,16 @@ def read_config(config_path: str) -> Dict[str, Any]:
 
 
 def load_module(config: Dict, type_key: str):
+    """
+    주어진 type_key (예: CONFIG_KEY_DATA_PIPELINES) 하위에
+    name, module 정보가 있어야 함
+    """
     name = config[type_key]["name"]
     if "module" in config[type_key]:
         module_path = config[type_key]["module"]
     else:
-        # FIXME : 모듈 경로 직접 입력
-        raise NotImplemented
+        raise NotImplementedError("No 'module' key found in config")
+
     try:
         module = importlib.import_module(module_path)
         return getattr(module, name)
@@ -135,7 +139,6 @@ def load_module(config: Dict, type_key: str):
 def create_data_providers(config: Dict[str, Any]) -> List[DataProvider]:
     logger.info("Creating data providers")
     data_pipelines = config[CONFIG_KEY_DATA_PIPELINES]
-    stocks = data_pipelines[CONFIG_KEY_STOCKS]
 
     if CONFIG_KEY_NAME not in data_pipelines:
         logger.error(f"{CONFIG_KEY_NAME} not found in data_pipelines configuration")
@@ -143,6 +146,16 @@ def create_data_providers(config: Dict[str, Any]) -> List[DataProvider]:
 
     provider_name = data_pipelines[CONFIG_KEY_NAME]
 
+    # 1) 'stocks' / 'companies' 분기
+    if CONFIG_KEY_STOCKS in data_pipelines:
+        items = data_pipelines[CONFIG_KEY_STOCKS]
+    elif "companies" in data_pipelines:
+        items = data_pipelines["companies"]
+    else:
+        logger.error("No 'stocks' or 'companies' key found in data_pipelines config")
+        raise ValueError("Need either 'stocks' or 'companies' in data_pipelines config")
+
+    # 모듈 로드
     try:
         provider_class = load_module(config, CONFIG_KEY_DATA_PIPELINES)
     except Exception as e:
@@ -151,21 +164,43 @@ def create_data_providers(config: Dict[str, Any]) -> List[DataProvider]:
 
     logger.info(f"Using provider class: {provider_class.__name__}")
 
-    params = ["interval", "period", "start_date", "end_date"]
+    # Provider별로 다른 파라미터 목록 결정
+    if provider_name == "YahooFinance":
+        # YahooFinance는 interval, period 등 사용
+        param_keys = ["interval", "period", "start_date", "end_date",
+                      "raise_errors", "keepna", "timeout"]
+    elif provider_name == "NaverNews":
+        param_keys = ["display", "start", "raise_errors", "timeout",
+                      "start_date", "end_date"]
+    elif provider_name == "FinanceDataReader":
+        # FinanceDataReader는 period가 없고, interval, start_date, end_date만 사용
+        # (constructor: __init__(self, symbol, interval="1D", start_date=None, end_date=None))
+        param_keys = ["interval", "start_date", "end_date"]
+    else:
+        # 기본값(주식 파이프라인 가정) or 필요에 따라 추가
+        param_keys = ["interval", "start_date", "end_date"]
+
     providers = []
-    for stock in stocks:
-        symbol = stock["symbol"]
-        provider_params = {
-            k: stock.get(k) or data_pipelines.get(k)
-            for k in params
-            if k in stock or k in data_pipelines
-        }
+    for item in items:
+        if "symbol" in item:
+            symbol_or_query = item["symbol"]
+        elif "query" in item:
+            symbol_or_query = item["query"]
+        else:
+            logger.error("Item has neither 'symbol' nor 'query'")
+            continue
 
-        if provider_params.get("end_date") == "TODAY":
-            provider_params["end_date"] = datetime.now().strftime("%Y-%m-%d")
+        provider_params = {}
+        for k in param_keys:
+            val = item.get(k, data_pipelines.get(k, None))
+            if k == "end_date" and val == "TODAY":
+                val = datetime.now().strftime("%Y-%m-%d")
 
-        providers.append(provider_class(symbol=symbol, **provider_params))
-        logger.debug(f"Created provider for symbol: {symbol}")
+            provider_params[k] = val
+
+        provider = provider_class(symbol_or_query, **provider_params)
+        logger.debug(f"Created provider for: {symbol_or_query} with params={provider_params}")
+        providers.append(provider)
 
     logger.info(f"Created {len(providers)} data providers")
     return providers

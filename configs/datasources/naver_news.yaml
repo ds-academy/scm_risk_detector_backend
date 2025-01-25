@@ -5,8 +5,8 @@ data_pipelines:
   companies:
     - name: "삼성전자"
       query: "삼성전자"
-      display: 50
+      display: 2
 
     - name: "SK하이닉스"
       query: "SK하이닉스"
-      display: 50
+      display: 2

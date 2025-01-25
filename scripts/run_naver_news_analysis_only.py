@@ -9,13 +9,18 @@ from module.data.providers.news_pipeline import NewsDataPipeline
 logger = get_logger(__name__)
 
 
-def run_naver_news_pipeline(config_path: str):
-    # 1) config 읽기
+def run_naver_news_analysis_only(config_path: str):
+    """
+    이미 news_link.csv, contents.json 이 준비되어 있다고 가정하고
+    GPT 감성 분석만 수행하는 함수.
+    """
+    # 1) config 로드
     config = read_config(config_path)
 
     # 2) pipeline 생성
     pipelines = create_pipelines(config)
 
+    # 3) NewsDataPipeline 변환
     news_pipelines = []
     for p in pipelines:
         news_pipeline = NewsDataPipeline(
@@ -28,44 +33,32 @@ def run_naver_news_pipeline(config_path: str):
         )
         news_pipelines.append(news_pipeline)
 
-    # (A) 메타 수집
-    for pipeline in news_pipelines:
-        df_new = pipeline.fetch_data()
-        logger.info(f"Fetched {len(df_new)} news items for query='{pipeline.data_provider.symbol}'")
-
-    # (B) 본문 수집
-    for pipeline in news_pipelines:
-        pipeline.fetch_article_content()
-
-    # (C) 감성 분석
+    # (C) 감성 분석만 수행
     openai_key = os.getenv("OPENAI_API_KEY", "")
     if not openai_key:
         logger.warning("OPENAI_API_KEY not found. Skipping sentiment analysis.")
     else:
         for pipeline in news_pipelines:
-            pipeline.analyze_contents_with_gpt(api_key=openai_key)
-    logger.info("Naver news pipeline completed.")
+            logger.info(f"Starting GPT analysis for symbol: {pipeline.data_provider.symbol}")
+            pipeline.analyze_contents_with_gpt(api_key=openai_key, model_id="gpt-4o-mini")
+    logger.info("Naver news analysis completed.")
 
 
 if __name__ == "__main__":
-    # 현재 파일의 위치와 프로젝트 루트 경로 설정
     current_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(current_dir)
     sys.path.append(project_root)
 
-    # 전역 로깅 설정
     setup_global_logging(
         log_dir=os.path.join(project_root, "logs"),
         log_level=logging.INFO,
         file_level=logging.DEBUG,
         stream_level=logging.INFO,
-        # telegram_token과 telegram_chat_id는 필요한 경우 추가
     )
 
-    logger.info("Starting Naver News script")
+    logger.info("Starting Naver News analysis-only script")
 
-    # 명령줄 인자 대신, 아래와 같이 config_path를 고정
-    # 예: naver_news_config.yaml 파일 위치가 "configs/datasources/naver_news_config.yaml"라고 가정
+    # 기존 config_path
     config_path = os.path.join(
         project_root,
         "configs",
@@ -78,8 +71,8 @@ if __name__ == "__main__":
         sys.exit(1)
 
     try:
-        run_naver_news_pipeline(config_path)
-        logger.info("Script completed")
+        run_naver_news_analysis_only(config_path)
+        logger.info("Analysis-only script completed")
     except Exception as e:
         logger.error(f"Exception occurred: {e}", exc_info=True)
         sys.exit(1)

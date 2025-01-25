@@ -5,7 +5,7 @@ from module.analysis.llm.utils import GPT_PROMPT
 
 
 class GPTModel:
-    def __init__(self, api_key: str, model_id: str = "gpt-3.5-turbo"):
+    def __init__(self, api_key: str, model_id: str = "gpt-4o-mini"):
         """
         GPTModel 클래스 초기화
         :param api_key: OpenAI API 키

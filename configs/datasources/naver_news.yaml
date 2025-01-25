@@ -1,0 +1,12 @@
+data_pipelines:
+  name: NaverNews
+  module: "module.data.providers.naver_news"
+  base_path: "data/news"
+  companies:
+    - name: "삼성전자"
+      query: "삼성전자"
+      display: 2
+
+    - name: "SK하이닉스"
+      query: "SK하이닉스"
+      display: 2

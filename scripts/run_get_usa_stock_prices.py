@@ -1,8 +1,8 @@
 import os
 import sys
 import logging
-from modules.utils import run_data_pipeline, read_config
-from modules.logger import get_logger, setup_global_logging
+from module.utils import run_data_pipeline, read_config
+from module.logger import get_logger, setup_global_logging
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(current_dir)
@@ -23,10 +23,15 @@ if __name__ == "__main__":
 
     logger.info("Starting script")
     config_path = os.path.join(
-        project_root, "configs", "datapipelines", "fdr_config.yaml"
+        project_root, "configs", "datasources", "usa_stock_price.yaml"
     )
 
     # config 파일 읽기
-    config = read_config(config_path)
+    try:
+        config = read_config(config_path)
+    except FileNotFoundError as e:
+        logger.error(f"Config file not found: {config_path}")
+        sys.exit(1)
+
     run_data_pipeline(config)
     logger.info("Script completed")

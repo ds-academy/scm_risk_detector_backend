@@ -23,15 +23,10 @@ if __name__ == "__main__":
 
     logger.info("Starting script")
     config_path = os.path.join(
-        project_root, "configs", "datasources", "raison_portfolio.yaml"
+        project_root, "configs", "datasources", "kor_stock_price.yaml"
     )
 
     # config 파일 읽기
-    try:
-        config = read_config(config_path)
-    except FileNotFoundError as e:
-        logger.error(f"Config file not found: {config_path}")
-        sys.exit(1)
-
+    config = read_config(config_path)
     run_data_pipeline(config)
     logger.info("Script completed")

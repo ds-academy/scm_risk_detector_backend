@@ -1,7 +1,7 @@
 data_pipelines:
   name: FinanceDataReader
-  module: "modules.data.fdr_korea"
-  base_path: "data/KOR"
+  module: "module.data.providers.fdr_korea"
+  base_path: "data/stocks/KOR"
   interval: "1d"
   start_date: "1970-01-01"
   end_date: "TODAY"

@@ -6,7 +6,7 @@ db_config = {
     'password': 'smhrd1',     # PASSWORD
     'host': 'project-db-cgi.smhrd.com',  # HOST NAME
     'port': 3307,
-    'database': 'InvestGenius',   # DATABASE NAME
+    'database': 'SCM_',   # DATABASE NAME
     'name': 'MYSQL'
 }
 

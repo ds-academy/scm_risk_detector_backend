@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, current_app
-from module.data.database.db_connector_refac import DBConnector
+from module.data.database.db_connector import DBConnector
 from module.route.session_manager import SessionManager
 
 session_bp = Blueprint("session", __name__)

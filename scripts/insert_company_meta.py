@@ -68,7 +68,7 @@ if __name__ == "__main__":
     logger.info("Starting insert_company_meta script")
 
     # (1) Database config
-    db_config_path = os.path.join(project_root, "configs", "datasources", "local_test_db_config.yaml")
+    db_config_path = os.path.join(project_root, "configs", "datasources", "db_config.yaml")
     db_conf = load_db_config_yaml(db_config_path)
 
     # (2) USA config

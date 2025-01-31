@@ -82,7 +82,7 @@ if __name__ == "__main__":
         project_root,
         "configs",
         "datasources",
-        "local_test_db_config.yaml"
+        "db_config.yaml"
     )
     db_conf = load_db_config_yaml(db_config_path)
 

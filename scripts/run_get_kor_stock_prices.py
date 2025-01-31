@@ -23,7 +23,7 @@ if __name__ == "__main__":
 
     logger.info("Starting script")
     config_path = os.path.join(
-        project_root, "configs", "datasources", "kor_stock_price.yaml"
+        project_root, "configs", "datasources", "kor_scm_stock_price.yaml"
     )
 
     # config 파일 읽기

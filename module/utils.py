@@ -425,3 +425,20 @@ def create_symbol_mapper(configs: List[Dict]) -> Dict[str, str]:
                 if "symbol" in d and "full_name" in d:
                     symbol_mapper[d["symbol"]] = d["full_name"]
     return symbol_mapper
+
+
+def load_db_config_yaml(config_path: str):
+    """
+    db_config.yaml 파일을 로드하여 dictionary를 반환.
+    YAML 구조:
+    db:
+      user: ...
+      password: ...
+      host: ...
+      port: ...
+      database: ...
+      name: ...
+    """
+    with open(config_path, "r", encoding="utf-8") as f:
+        data = yaml.safe_load(f)
+    return data["db"]  # 'db' 키 안에 있는 dict 반환

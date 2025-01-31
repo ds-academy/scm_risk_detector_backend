@@ -1,0 +1,7 @@
+db:
+  user: "cgi_24K_bigdata26_p3_1"   # USER NAME
+  password: "smhrd1"             # PASSWORD
+  host: "project-db-cgi.smhrd.com"    # HOST NAME
+  port: 3307
+  database: "SCM_DATA"
+  name: "MYSQL"

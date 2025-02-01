@@ -6,43 +6,53 @@ data_pipelines:
   start_date: "1970-01-01"
   end_date: "TODAY"
   stocks:
-  - symbol: "005930"
-    full_name: 삼성전자
-    exchange: KRX
-    sector: "전자"
+    - symbol: "KS11"
+      full_name: 코스피지수
+      exchange: KRX
+      sector: "지수"
 
-  - symbol: "073240"
-    full_name: 금호타이어
-    exchange: KRX
-    sector: "자동차"
+    - symbol: "KQ11"
+      full_name: 코스닥지수
+      exchange: KRX
+      sector: "지수"
 
-  - symbol: "051900"
-    full_name: LG생활건강
-    exchange: KRX
-    sector: "화학"
+    - symbol: "005930"
+      full_name: 삼성전자
+      exchange: KRX
+      sector: "전자"
 
-  - symbol: "034220"
-    full_name: LG디스플레이
-    exchange: KRX
-    sector: "전자"
+    - symbol: "073240"
+      full_name: 금호타이어
+      exchange: KRX
+      sector: "자동차"
 
-  - symbol: "051910"
-    full_name: LG화학
-    exchange: KRX
-    sector: "화학"
+    - symbol: "051900"
+      full_name: LG생활건강
+      exchange: KRX
+      sector: "화학"
 
-  - symbol: "267260"
-    full_name: HD현대일렉트릭
-    exchange: KRX
-    sector: "전기"
+    - symbol: "034220"
+      full_name: LG디스플레이
+      exchange: KRX
+      sector: "전자"
 
-  - symbol: "004370"
-    full_name: 농심
-    exchange: KRX
-    sector: "식료품"
+    - symbol: "051910"
+      full_name: LG화학
+      exchange: KRX
+      sector: "화학"
 
-  - symbol: "005380"
-    full_name: 현대자동차
-    exchange: KRX
-    sector: "자동차"
+    - symbol: "267260"
+      full_name: HD현대일렉트릭
+      exchange: KRX
+      sector: "전기"
+
+    - symbol: "004370"
+      full_name: 농심
+      exchange: KRX
+      sector: "식료품"
+
+    - symbol: "005380"
+      full_name: 현대자동차
+      exchange: KRX
+      sector: "자동차"
 

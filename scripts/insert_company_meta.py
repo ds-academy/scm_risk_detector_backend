@@ -72,10 +72,10 @@ if __name__ == "__main__":
     db_conf = load_db_config_yaml(db_config_path)
 
     # (2) USA config
-    # usa_config_path = os.path.join(
-    #     project_root, "configs", "datasources", "usa_stock_price.yaml"
-    # )
-    # insert_company_meta_from_config(usa_config_path, db_conf, "USA")
+    usa_config_path = os.path.join(
+        project_root, "configs", "datasources", "usa_stock_price.yaml"
+    )
+    insert_company_meta_from_config(usa_config_path, db_conf, "USA")
 
     # 2) KOR config
     kor_config_path = os.path.join(

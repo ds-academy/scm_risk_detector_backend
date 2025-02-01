@@ -7,202 +7,97 @@ data_pipelines:
   start_date: "1970-01-01"
   end_date: "TODAY"
   stocks:
-    - symbol: AAPL
-      full_name: Apple Inc.
-      exchange: NASDAQ
+    - symbol: ^DJI
+      full_name: DOW JONES INDUSTRIAL AVERAGE
+      exchange: INDEXDJX
+      sector: INDEX
 
-    - symbol: MSFT
-      full_name: Microsoft Corporation
-      exchange: NASDAQ
+    - symbol: ^IXIC
+      full_name: NASDAQ COMPOSITE
+      exchange: INDEXNASDAQ
+      sector: INDEX
 
-    - symbol: AMZN
-      full_name: Amazon.com Inc.
-      exchange: NASDAQ
+    - symbol: ^GSPC
+      full_name: S&P 500
+      exchange: INDEXSP
+      sector: INDEX
 
-    - symbol: GOOGL
-      full_name: Alphabet Inc.
-      exchange: NASDAQ
+    - symbol: ^VIX
+      full_name: CBOE VOLATILITY INDEX
+      exchange: CBOE
+      sector: INDEX
 
-    - symbol: META
-      full_name: Meta Platforms Inc.
-      exchange: NASDAQ
+    - symbol: ^TNX
+      full_name: CBOE 10-YEAR TREASURY NOTE YIELD INDEX
+      exchange: CBOE
+      sector: INDEX
 
-    - symbol: TSLA
-      full_name: Tesla Inc.
-      exchange: NASDAQ
+    - symbol: ^IRX
+      full_name: CBOE 13-WEEK TREASURY BILL YIELD INDEX
+      exchange: CBOE
+      sector: INDEX
 
-    - symbol: BRK-B
-      full_name: Berkshire Hathaway Inc.
-      exchange: NYSE
+    - symbol: ^FVX
+      full_name: CBOE 5-YEAR TREASURY NOTE YIELD INDEX
+      exchange: CBOE
+      sector: INDEX
 
-    - symbol: JPM
-      full_name: JPMorgan Chase & Co.
-      exchange: NYSE
+    - symbol: ^TYX
+      full_name: CBOE 30-YEAR TREASURY BOND YIELD INDEX
+      exchange: CBOE
+      sector: INDEX
 
-    - symbol: JNJ
-      full_name: Johnson & Johnson
-      exchange: NYSE
+    - symbol: ^RUT
+      full_name: RUSSELL 2000 INDEX
+      exchange: INDEXRUSSELL
+      sector: INDEX
 
-    - symbol: V
-      full_name: Visa Inc.
-      exchange: NYSE
+    - symbol: CL=F
+      full_name: CRUDE OIL WTI
+      exchange: NYMEX
+      sector: COMMODITY
 
-    - symbol: PG
-      full_name: Procter & Gamble Company
-      exchange: NYSE
+    - symbol: BZ=F
+      full_name: CRUDE OIL BRENT
+      exchange: NYMEX
+      sector: COMMODITY
 
-    - symbol: UNH
-      full_name: UnitedHealth Group Incorporated
-      exchange: NYSE
+    - symbol: NG=F
+      full_name: NATURAL GAS
+      exchange: NYMEX
+      sector: COMMODITY
 
-    - symbol: MA
-      full_name: Mastercard Incorporated
-      exchange: NYSE
+    - symbol: GC=F
+      full_name: GOLD
+      exchange: COMEX
+      sector: COMMODITY
 
-    - symbol: NVDA
-      full_name: NVIDIA Corporation
-      exchange: NASDAQ
+    - symbol: SI=F
+      full_name: SILVER
+      exchange: COMEX
+      sector: COMMODITY
 
-    - symbol: HD
-      full_name: The Home Depot Inc.
-      exchange: NYSE
+    - symbol: HG=F
+      full_name: COPPER
+      exchange: COMEX
+      sector: COMMODITY
 
-    - symbol: DIS
-      full_name: The Walt Disney Company
-      exchange: NYSE
+    - symbol: ZC=F
+      full_name: CORN
+      exchange: CBOT
+      sector: COMMODITY
 
-    - symbol: BAC
-      full_name: Bank of America Corporation
-      exchange: NYSE
+    - symbol: ZW=F
+      full_name: WHEAT
+      exchange: CBOT
+      sector: COMMODITY
 
-    - symbol: ADBE
-      full_name: Adobe Inc.
-      exchange: NASDAQ
+    - symbol: ZS=F
+      full_name: SOYBEAN
+      exchange: CBOT
+      sector: COMMODITY
 
-    - symbol: CRM
-      full_name: Salesforce Inc.
-      exchange: NYSE
-
-    - symbol: CMCSA
-      full_name: Comcast Corporation
-      exchange: NASDAQ
-
-    - symbol: XOM
-      full_name: Exxon Mobil Corporation
-      exchange: NYSE
-
-    - symbol: VZ
-      full_name: Verizon Communications Inc.
-      exchange: NYSE
-
-    - symbol: COST
-      full_name: Costco Wholesale Corporation
-      exchange: NASDAQ
-
-    - symbol: INTC
-      full_name: Intel Corporation
-      exchange: NASDAQ
-
-    - symbol: T
-      full_name: AT&T Inc.
-      exchange: NYSE
-
-    - symbol: PFE
-      full_name: Pfizer Inc.
-      exchange: NYSE
-
-    - symbol: NFLX
-      full_name: Netflix Inc.
-      exchange: NASDAQ
-
-    - symbol: ABT
-      full_name: Abbott Laboratories
-      exchange: NYSE
-
-    - symbol: KO
-      full_name: The Coca-Cola Company
-      exchange: NYSE
-
-    - symbol: PEP
-      full_name: PepsiCo Inc.
-      exchange: NASDAQ
-
-    - symbol: MRK
-      full_name: Merck & Co. Inc.
-      exchange: NYSE
-
-    - symbol: WMT
-      full_name: Walmart Inc.
-      exchange: NYSE
-
-    - symbol: CSCO
-      full_name: Cisco Systems Inc.
-      exchange: NASDAQ
-
-    - symbol: CVX
-      full_name: Chevron Corporation
-      exchange: NYSE
-
-    - symbol: TMO
-      full_name: Thermo Fisher Scientific Inc.
-      exchange: NYSE
-
-    - symbol: ABBV
-      full_name: AbbVie Inc.
-      exchange: NYSE
-
-    - symbol: NKE
-      full_name: NIKE Inc.
-      exchange: NYSE
-
-    - symbol: ORCL
-      full_name: Oracle Corporation
-      exchange: NYSE
-
-    - symbol: ACN
-      full_name: Accenture plc
-      exchange: NYSE
-
-    - symbol: MDT
-      full_name: Medtronic plc
-      exchange: NYSE
-
-    - symbol: LLY
-      full_name: Eli Lilly and Company
-      exchange: NYSE
-
-    - symbol: NEE
-      full_name: NextEra Energy Inc.
-      exchange: NYSE
-
-    - symbol: UNP
-      full_name: Union Pacific Corporation
-      exchange: NYSE
-
-    - symbol: DHR
-      full_name: Danaher Corporation
-      exchange: NYSE
-
-    - symbol: PM
-      full_name: Philip Morris International Inc.
-      exchange: NYSE
-
-    - symbol: HON
-      full_name: Honeywell International Inc.
-      exchange: NASDAQ
-
-    - symbol: BMY
-      full_name: Bristol-Myers Squibb Company
-      exchange: NYSE
-
-    - symbol: UPS
-      full_name: United Parcel Service Inc.
-      exchange: NYSE
-
-    - symbol: QCOM
-      full_name: QUALCOMM Incorporated
-      exchange: NASDAQ
-
-    - symbol: TXN
-      full_name: Texas Instruments Incorporated
-      exchange: NASDAQ
+    - symbol: KRW=X
+      full_name: USD/KRW
+      exchange: CCY
+      sector: CURRENCY

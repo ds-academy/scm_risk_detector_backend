@@ -69,10 +69,15 @@ class StockDataInserter(DBConnector):
         df: columns=[date, open, high, low, close]
         """
         query = """
-        INSERT INTO STOCK_PRICE (COMPANY_CODE, DATE, OPEN, HIGH, LOW, CLOSE)
-        VALUES (%s, %s, %s, %s, %s, %s)
+        INSERT INTO STOCK_PRICE (COMPANY_CODE, DATE, OPEN, HIGH, LOW, CLOSE, VOLUME)
+        VALUES (%s, %s, %s, %s, %s, %s, %s)
         """
         rows = []
+
+        df["volume"] = df["volume"].fillna(0)
+        df["volume"] = df["volume"].clip(lower=0)
+        df["volume"] = df["volume"].astype(int)
+
         for _, row in df.iterrows():
             dt_val = row["date"]
             if hasattr(dt_val, "to_pydatetime"):
@@ -83,7 +88,8 @@ class StockDataInserter(DBConnector):
                 float(row["open"]),
                 float(row["high"]),
                 float(row["low"]),
-                float(row["close"])
+                float(row["close"]),
+                float(row["volume"])
             ))
 
         if not rows:

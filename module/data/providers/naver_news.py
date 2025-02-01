@@ -9,6 +9,7 @@ from module.logger import get_logger
 
 logger = get_logger(__name__)
 
+# FIXME : 환경변수로 설정
 NAVER_CLIENT_ID = os.getenv("NAVER_CLIENT_ID", "oJ9H3ww68UJPMlQErEb_")
 NAVER_CLIENT_SECRET = os.getenv("NAVER_CLIENT_SECRET", "gk7pKWpwA5")
 

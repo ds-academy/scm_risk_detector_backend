@@ -241,3 +241,6 @@ TASKS.md
 /logs/*
 
 /raison/*
+
+.settings
+.idea

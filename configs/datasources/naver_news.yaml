@@ -59,3 +59,7 @@ data_pipelines:
       exchange: KRX
       sector: "자동차"
 
+
+
+
+completed_crawling : []

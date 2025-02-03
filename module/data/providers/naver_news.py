@@ -1,4 +1,5 @@
 import os
+import yaml
 import requests
 import pandas as pd
 from typing import Optional
@@ -6,6 +7,7 @@ from newspaper import Article
 
 from module.data.providers.core import DataProvider
 from module.logger import get_logger
+from data.news.omission_news import find_missing_dates
 
 logger = get_logger(__name__)
 
@@ -42,6 +44,26 @@ class NaverNews(DataProvider):
         네이버 뉴스 API -> (title, originallink, link, description, pubDate 등) DataFrame
         """
         try:
+            #  <황세종>
+
+            # (1) if문으로 naver_news.yaml 안에 conmpleted_crawling 리스트 query 가 없다면 크롤링 진행
+            # 1-1 설정값 로드
+            with open('configs/datasources/naver_news.yaml', 'r', ) as file:
+                config = yaml.safe_load(file)
+
+
+
+            # (2) find_missing_dates() 함수를 통해 2025년 1월 기간동안 누락된 날짜만 missing_dates = [] 불러오기
+
+
+            # (3) fetch_data_via_selenium() 함수를 통해 selenium 크롤링 진행
+
+
+            # (4) 크롤링한 뉴스데이터가 return pd.DataFrame() 정상적으로 돌아가는지 테스트 하기
+
+
+
+
             url = "https://openapi.naver.com/v1/search/news"
             headers = {
                 "X-Naver-Client-Id": NAVER_CLIENT_ID,
@@ -50,7 +72,7 @@ class NaverNews(DataProvider):
             params = {
                 "query": self.query,
                 "display": self.display,
-                "start": self.start,
+                "start": self.start
             }
 
             logger.info(f"Fetching news for query='{self.query}' (display={self.display})")

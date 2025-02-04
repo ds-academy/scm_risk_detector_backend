@@ -1,5 +1,6 @@
 tiktoken==0.8.0
 numpy==1.26.4
+scipy==1.15.1
 openai==1.51.2
 PyMySQL==1.0.2
 pandas==2.2.2
@@ -11,3 +12,5 @@ finance-datareader==0.9.94
 newspaper3k==0.2.8
 lxml_html_clean==0.4.1
 plotly==5.24.1
+ruptures==1.1.9    # data change point detection
+yappi==1.6.10   # profiling

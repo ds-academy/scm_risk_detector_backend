@@ -1,5 +1,3 @@
-# module/data/database/stock_data_inserter.py
-
 import pymysql
 import pandas as pd
 from module.data.database.db_connector import DBConnector

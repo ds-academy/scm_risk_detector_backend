@@ -1,7 +1,6 @@
 import os
 import sys
 import logging
-
 from module.utils import read_config, create_pipelines
 from module.logger import get_logger, setup_global_logging
 from module.data.providers.news_pipeline import NewsDataPipeline

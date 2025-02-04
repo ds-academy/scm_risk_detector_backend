@@ -169,7 +169,7 @@ if __name__ == "__main__":
     logger.info("Starting update_stock_price script")
 
     # load configs
-    db_config_path = os.path.join(project_root, "configs", "datasources", "local_test_db_config.yaml")
+    db_config_path = os.path.join(project_root, "configs", "datasources", "db_config.yaml")
     db_conf = load_db_config_yaml(db_config_path)
 
     usa_stock_config_path = os.path.join(
